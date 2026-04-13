@@ -61,15 +61,14 @@
     }
 
     .for-text {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       color: var(--black);
-      align-self: flex-start;
-      margin-top: 7px;
-      margin-left: 2px;
+      font-style: italic;
+      margin-top: 18px;
     }
 
-    .logo-icon-wrap {
+    /*.logo-icon-wrap {
       width: var(--logo-icon-size);
       height: var(--logo-icon-size);
       border-radius: 5px;
@@ -95,7 +94,7 @@
       font-size: 9px;
       color: #aaa;
       font-weight: 400;
-    }
+    }*/
 
     .hero-creativity {
       font-size: 40px;
@@ -103,8 +102,7 @@
       color: #b0b0b0;
       letter-spacing: -2px;
       line-height: 1;
-      margin-top: -17px;
-      margin-left: -83px;
+      
     }
 
     .hero-input-row {
@@ -171,41 +169,7 @@
       text-align: center;
     }
 
-    /* ════════════════════════════
-       SCROLL INDICATOR (mobile only)
-    ════════════════════════════ */
-    .scroll-hint {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: scrollBounce 2s ease-in-out infinite;
-    }
-
-    .scroll-hint span {
-      font-size: 10px;
-      color: #bbb;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 24px;
-      background: linear-gradient(to bottom, #ccc, transparent);
-    }
-
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(5px); }
-    }
-
-    /* ════════════════════════════
+     /* ════════════════════════════
        DARK SECTION
     ════════════════════════════ */
     .dark-wrapper { background: var(--black); }
@@ -240,6 +204,9 @@
       color: var(--white);
       line-height: 1.12;
       letter-spacing: -1px;
+    }
+    #dark-heading {
+      display: none;
     }
 
     .highlight-blue { color: var(--blue-accent); }
@@ -364,7 +331,9 @@
       .hero-input-row  { max-width: 400px; }
       .hero-tagline    { font-size: 14px; max-width: 380px; }
       .hero { min-height:100vh }
-    }
+      #dark-stat_1 { display: none;}
+      #dark-heading {  display: block;}
+       }
 
     /* ════════════════════════════
        480px — Large Mobile
@@ -376,6 +345,9 @@
       .hero-input-row  { max-width: 400px; }
       .hero-tagline    { font-size: 14px; max-width: 380px; }
       .hero { min-height:100vh }
+      #dark-stat_1 { display: none;}
+      #dark-heading {  display: block;}
+    
     }
 
     /* ════════════════════════════
@@ -405,10 +377,10 @@
 
       .dark-left       { flex: 1 1 45%; max-width: 440px; padding-left: 56px; }
       .dark-right      { flex: 1 1 45%; max-width: 400px; padding-top: 6px; }
-      .dark-stat       { font-size: 36px; letter-spacing: -1.5px; }
+      .dark-stat       { font-size: 44px; letter-spacing: -1.5px; }
       .dark-description{ font-size: 14px; }
       .social-row      { gap: 14px; margin-top: 28px; }
-    }
+          }
 
     /* ════════════════════════════
        1025px — Laptop
@@ -501,10 +473,10 @@
 
       <div class="hero-logo">
         <span class="bunker-text">Bunker</span>
-        <span class="for-text" style="margin-left:6px !important; position:relative; z-index:99; padding-top:9px;">for</span>
-        <div class="logo-icon-wrap" title="Logo icon" aria-label="Logo icon">
-          <img src="images/Creativity.svg" alt="Creativity">
-        </div>
+        <span class="for-text">for</span>
+        <!-- <div class="logo-icon-wrap" title="Logo icon" aria-label="Logo icon" style="display"> -->
+          <!-- <img src="images/Creativity.svg" alt="Creativity"> -->
+        <!-- </div> -->
       </div>
 
       <div class="hero-creativity">Creativity</div>
@@ -539,10 +511,17 @@
         <div class="dark-left">
           <div class="quote-mark" aria-hidden="true"></div>
           <div class="quote-mark" style="left:32px;" aria-hidden="true"></div>
-          <p class="dark-stat" style="margin-left:10px;">
+           <p class="dark-stat" style="margin-left:10px;" id="dark-stat_1" >
             Only 1 in 10<br>
             brands truly<br>
             <span class="highlight-blue">understand</span> their<br>
+            market - we exist<br>
+            to close that <span class="highlight-blue">gap</span>.
+          </p>
+          <p class="dark-stat" style="margin-left:10px;" id="dark-heading" >
+            Only 1 in 10
+            brands truly
+            <span class="highlight-blue">understand</span> their
             market - we exist<br>
             to close that <span class="highlight-blue">gap</span>.
           </p>
