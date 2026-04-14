@@ -50,6 +50,7 @@
       align-items: center;
       gap: 6px;
       line-height: 1;
+      margin-left: 96px ;
     }
 
     .bunker-text {
@@ -217,20 +218,22 @@
       font-size: 14px;
       font-weight: 400;
       color: #ccc;
+      color: #777171;
       line-height: 1.75;
     }
 
     .dark-description strong {
       color: var(--white);
       font-weight: 600;
+
     }
 
     .link-blue {
-      color: var(--blue-accent);
+      color: var(--white);
       text-decoration: none;
     }
 
-    .link-blue:hover { text-decoration: underline; }
+    /*.link-blue:hover { text-decoration: underline; }*/
 
     /* ════════════════════════════
        SOCIAL ICONS
@@ -257,7 +260,7 @@
       transition: background 0.2s, border-color 0.2s, transform 0.18s;
     }
 
-    .social-btn:hover { transform: translateY(-3px); }
+    /*.social-btn:hover { transform: translateY(-3px); }*/
 
     .social-btn svg {
       width: 18px;
@@ -268,7 +271,7 @@
     }
 
     /* Brand hover colours */
-    .social-btn.instagram:hover {
+    /*.social-btn.instagram:hover {
       background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       border-color: transparent;
     }
@@ -283,7 +286,7 @@
     .social-btn.twitter:hover {
       background: #111;
       border-color: #555;
-    }
+    }*/
 
     /* ════════════════════════════
        MOBILE — Full-height hero + scroll snap
@@ -292,6 +295,9 @@
       html, body {
         height: 100%;
         overflow: hidden;
+      }
+      .hero-logo {
+          margin-left: 60px;
       }
 
       .page-snap {
@@ -325,7 +331,7 @@
        380px — Large Mobile
     ════════════════════════════ */
     @media (min-width: 380px) and (max-width: 479px) {
-      .bunker-text     { font-size: 50px; letter-spacing: -2.5px; }
+      .bunker-text     { font-size: 40px; letter-spacing: -2.5px; }
       .for-text        { font-size: 14px; margin-top: 9px; }
       .hero-creativity { font-size: 50px; letter-spacing: -2.5px; }
       .hero-input-row  { max-width: 400px; }
@@ -339,7 +345,7 @@
        480px — Large Mobile
     ════════════════════════════ */
     @media (min-width: 480px) and (max-width: 767px) {
-      .bunker-text     { font-size: 50px; letter-spacing: -2.5px; }
+      .bunker-text     { font-size: 40px; letter-spacing: -2.5px; }
       .for-text        { font-size: 14px; margin-top: 9px; }
       .hero-creativity { font-size: 50px; letter-spacing: -2.5px; }
       .hero-input-row  { max-width: 400px; }
@@ -361,7 +367,7 @@
       }
 
       .hero            { padding: 72px 48px 88px; }
-      .bunker-text     { font-size: 60px; letter-spacing: -3px; }
+      .bunker-text     { font-size: 50px; letter-spacing: -3px; }
       .for-text        { font-size: 16px; margin-top: 11px; }
       .hero-creativity { font-size: 60px; letter-spacing: -3px; margin-top: 6px; }
       .hero-input-row  { max-width: 460px; margin-top: 36px; }
@@ -393,7 +399,7 @@
       }
 
       .hero            { padding: 88px 60px 104px; }
-      .bunker-text     { font-size: 70px; letter-spacing: -3.5px; }
+      .bunker-text     { font-size: 60px; letter-spacing: -3.5px; }
       .for-text        { font-size: 18px; margin-top: 13px; }
       .hero-creativity { font-size: 70px; letter-spacing: -3.5px; margin-top: 6px; }
       .hero-input-row  { max-width: 500px; margin-top: 40px; }
@@ -401,7 +407,7 @@
       .dark-section    { padding: 88px 6vw; gap: 60px; }
       .dark-left       { max-width: 480px; padding-left: 64px; }
       .dark-right      { max-width: 440px; }
-      .dark-stat       { font-size: 52px; letter-spacing: -2px; }
+      .dark-stat       { font-size: 46px; letter-spacing: -2px; }
       .dark-description{ font-size: 15px; }
       .social-row      { gap: 16px; margin-top: 30px; }
       .social-btn svg  { width: 20px; height: 20px; }
@@ -418,7 +424,7 @@
       }
 
       .hero            { padding: 100px 80px 120px; }
-      .bunker-text     { font-size: 76px; letter-spacing: -4px; }
+      .bunker-text     { font-size: 60px; letter-spacing: -4px; }
       .for-text        { font-size: 18px; margin-top: 15px; }
       .hero-creativity { font-size: 76px; letter-spacing: -4px; margin-top: 8px; }
       .hero-input-row  { max-width: 520px; margin-top: 44px; }
@@ -451,11 +457,11 @@
       }
 
       .hero            { padding: 120px 80px 140px; }
-      .bunker-text     { font-size: 84px; letter-spacing: -4.5px; }
+      .bunker-text     { font-size: 70px; letter-spacing: -4.5px; }
       .for-text        { font-size: 20px; margin-top: 16px; }
       .hero-creativity { font-size: 84px; letter-spacing: -4.5px; margin-top: 10px; }
       .hero-tagline    { font-size: 17px; max-width: 560px; }
-      .dark-stat       { font-size: 64px; letter-spacing: -3px; }
+      .dark-stat       { font-size: 56px; letter-spacing: -3px; }
       .dark-description{ font-size: 16px; }
       .social-row      { gap: 22px; margin-top: 36px; }
       .social-btn svg  { width: 24px; height: 24px; }
