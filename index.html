@@ -341,8 +341,12 @@
 
       /* No scroll-snap, no min-height — content-sized only */
       .dark-wrapper {
-        display: block;
-        min-height: unset;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        min-height: 65svh;
+        /* Use flex to prevent extra blank space */
+        display: flex;
+        flex-direction: column;
       }
 
       .dark-section {
