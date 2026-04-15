@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Bunker for Creativity</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -34,8 +34,16 @@
       scrollbar-width: none;
       -webkit-font-smoothing: antialiased;
       user-select: none;
+      touch-action: manipulation; /* Prevents double-tap zoom */
     }
-
+     /* ════════════════════════════
+       PREVENT ZOOMING
+    ════════════════════════════ */
+    html, body {
+      -ms-text-size-adjust: 100%; /* IE/Edge */
+      -webkit-text-size-adjust: 100%; /* Safari/Chrome */
+      text-size-adjust: 100%; /* Standard property */
+    }
     /* ════════════════════════════
        HERO SECTION
     ════════════════════════════ */
@@ -535,6 +543,17 @@
   </div>
 
   <script>
+
+    /* Disabling Zoom */
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('gesturechange', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('gestureend', function (e) {
+      e.preventDefault();
+    });
     const inp = document.querySelector('.hero-email-input');
     const btn = document.querySelector('.hero-btn');
     const err = document.getElementById('emailError');
