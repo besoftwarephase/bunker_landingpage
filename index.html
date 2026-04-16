@@ -833,14 +833,14 @@ html, body {
       const val = inp.value.trim();
       if (!val) {
         inp.classList.add('error');
-        err.textContent = 'Please enter your email address.';
+        // err.textContent = 'Please enter your email address.';
         err.style.display = 'block';
         inp.focus();
         return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
         inp.classList.add('error');
-        err.textContent = 'Please enter a valid email address.';
+        // err.textContent = 'Please enter a valid email address.';
         err.style.display = 'block';
         inp.focus();
         return;
