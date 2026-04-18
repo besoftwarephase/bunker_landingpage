@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="touch-action: none;">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>Bunker for Creativity</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -37,7 +37,9 @@ html, body {
   scrollbar-width: none;
   -webkit-font-smoothing: antialiased;
   user-select: none;
-  touch-action: manipulation;
+  touch-action: none;
+  -ms-touch-action: none;
+  -ms-content-zooming: none;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -82,7 +84,7 @@ html, body {
 }
 
 /* ============================
-   ANIMATED WORD (DUMY.HTML FEATURE)
+   ANIMATED WORD
 ============================ */
 #changing-word {
   display: inline-block;
@@ -102,7 +104,6 @@ html, body {
   transform: translateY(0);
 }
 
-/* Hide old Creativity text since animation replaces it */
 .hero-creativity {
   display: none;
 }
@@ -111,7 +112,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 30px !important;
+  margin-top: 24px !important;
   width: 100%;
   max-width: 360px;
 }
@@ -143,9 +144,9 @@ html, body {
 }
 
 .hero-email-input.error {
-    border: 1.5px solid #c92020;
-    background: #fff;
-    box-shadow: rgb(220 21 84 / 25%) 0px 2px 5px -1px, rgb(189 37 37 / 30%) 0px 1px 3px -1px;
+  border: 1.5px solid #ca2221;
+  background: #fff;
+  box-shadow: rgb(216 120 137 / 25%) 0px 2px 5px -1px, rgb(191 100 100 / 30%) 0px 1px 3px -1px;
 }
 
 .hero-btn {
@@ -283,29 +284,18 @@ html, body {
 #dark-heading {
   display: none;
 }
+
 /* ============================
    NET STATUS BANNER
 ============================ */
 @keyframes slideDown {
-  from {
-    transform: translateX(-50%) translateY(-110%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateX(-50%) translateY(-110%); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);    opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-50%) translateY(-110%);
-    opacity: 0;
-  }
+  from { transform: translateX(-50%) translateY(0);    opacity: 1; }
+  to   { transform: translateX(-50%) translateY(-110%); opacity: 0; }
 }
 
 #netStatus {
@@ -339,7 +329,6 @@ html, body {
   gap: 12px;
   padding: 13px 16px;
   border-radius: 16px;
-  /*border: 0.5px solid;*/
   font-size: 13px;
   font-weight: 400;
   line-height: 1.4;
@@ -348,17 +337,8 @@ html, body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
 }
 
-.net-toast.offline {
- /* background: rgba(252, 235, 235, 0.97);
-  border-color: #F09595;*/
-  color: #2f2b2b;
-}
-
-.net-toast.online {
-  /*background: rgba(234, 243, 222, 0.97);
-  border-color: #97C459;*/
-  color: #2f2b2b;
-}
+.net-toast.offline { color: #2f2b2b; }
+.net-toast.online  { color: #2f2b2b; }
 
 .net-icon {
   flex-shrink: 0;
@@ -373,11 +353,7 @@ html, body {
 .net-icon.offline { background: #E24B4A; }
 .net-icon.online  { background: #639922; }
 
-.net-icon svg {
-  width: 16px;
-  height: 16px;
-  display: block;
-}
+.net-icon svg { width: 16px; height: 16px; display: block; }
 
 .net-body { flex: 1; min-width: 0; }
 
@@ -406,9 +382,7 @@ html, body {
   animation: blink 1.6s ease-in-out infinite;
 }
 
-.net-dot.online {
-  background: #639922;
-}
+.net-dot.online { background: #639922; }
 
 @keyframes blink {
   0%, 100% { opacity: 1; transform: scale(1); }
@@ -434,9 +408,7 @@ html, body {
     flex-direction: column;
   }
 
-  .dark-section {
-    flex: 1;
-  }
+  .dark-section { flex: 1; }
 }
 
 /* ============================
@@ -449,14 +421,9 @@ html, body {
     margin-left: -16px;
   }
 
-  .for-text {
-    font-size: 14px;
-    margin-top: 9px;
-  }
+  .for-text { font-size: 14px; margin-top: 9px; }
 
-  #changing-word {
-    font-size: 45px;
-  }
+  #changing-word { font-size: 45px; }
 
   .hero-tagline {
     font-size: 10px;
@@ -464,26 +431,16 @@ html, body {
     margin-top: 15px;
   }
 
-  #dark-stat_1 {
-    display: none;
-  }
+  #dark-stat_1  { display: none; }
 
   #dark-heading {
     display: block;
     margin-left: -46px;
   }
 
-  .dark-stat {
-    font-size: 40px;
-  }
-
-  .dark-description {
-    font-size: 11px;
-  }
-
-  .hero-logo {
-    margin-left: 45px;
-  }
+  .dark-stat { font-size: 40px; }
+  .dark-description { font-size: 11px; }
+  .hero-logo { margin-left: 45px; }
 }
 
 /* ============================
@@ -495,10 +452,7 @@ html, body {
     letter-spacing: -2.5px;
   }
 
-  .for-text {
-    font-size: 14px;
-    margin-top: 9px;
-  }
+  .for-text { font-size: 14px; margin-top: 9px; }
 
   #changing-word {
     font-size: 50px;
@@ -510,9 +464,7 @@ html, body {
     max-width: 380px;
   }
 
-  #dark-stat_1 {
-    display: none;
-  }
+  #dark-stat_1 { display: none; }
 
   #dark-heading {
     display: block;
@@ -524,9 +476,7 @@ html, body {
     max-width: 320px;
   }
 
-  .dark-right {
-    margin-left: 2px;
-  }
+  .dark-right { margin-left: 2px; }
 }
 
 /* ============================
@@ -548,13 +498,8 @@ html, body {
     max-width: 400px;
   }
 
-  #dark-stat_1 {
-    display: none;
-  }
-
-  .dark-left {
-    text-align: left;
-  }
+  #dark-stat_1 { display: none; }
+  .dark-left   { text-align: left; }
 
   .dark-stat {
     text-align: left;
@@ -563,9 +508,7 @@ html, body {
     max-width: 320px;
   }
 
-  #dark-heading {
-    display: block;
-  }
+  #dark-heading { display: block; }
 }
 
 /* ============================
@@ -588,10 +531,7 @@ html, body {
     letter-spacing: -3px;
   }
 
-  .for-text {
-    font-size: 16px;
-    margin-top: 11px;
-  }
+  .for-text { font-size: 16px; margin-top: 11px; }
 
   #changing-word {
     font-size: 55px;
@@ -619,7 +559,7 @@ html, body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: 80px;
+    gap: 20px;
     padding: 98px 48px;
     max-width: 900px;
     margin: 0 auto;
@@ -638,22 +578,19 @@ html, body {
   }
 
   .dark-stat {
-    font-size: 38px;
+    font-size: 36px;
     letter-spacing: -1.5px;
+    max-width: 270px;
   }
 
-  .dark-description {
-    font-size: 10px;
-  }
+  .dark-description { font-size: 10px; }
 
   .social-row {
     gap: 14px;
     margin-top: 28px;
   }
 
-  .hero-logo {
-    margin-left: 39px;
-  }
+  .hero-logo { margin-left: 39px; }
 }
 
 /* ============================
@@ -666,19 +603,14 @@ html, body {
     --quote-h: 54px;
   }
 
-  .hero {
-    padding: 88px 60px 104px;
-  }
+  .hero { padding: 88px 60px 104px; }
 
   .bunker-text {
     font-size: 60px;
     letter-spacing: -3.5px;
   }
 
-  .for-text {
-    font-size: 18px;
-    margin-top: 13px;
-  }
+  .for-text { font-size: 18px; margin-top: 13px; }
 
   #changing-word {
     font-size: 73px;
@@ -708,18 +640,15 @@ html, body {
     padding-left: 64px;
   }
 
-  .dark-right {
-    max-width: 420px;
-  }
+  .dark-right { max-width: 420px; }
 
   .dark-stat {
-    font-size: 51px;
+    font-size: 47px;
     letter-spacing: -2px;
+    max-width: unset;
   }
 
-  .dark-description {
-    font-size: 15px;
-  }
+  .dark-description { font-size: 15px; }
 
   .social-row {
     gap: 16px;
@@ -731,9 +660,7 @@ html, body {
     height: 20px;
   }
 
-  .dark-wrapper {
-    min-height: 50svh;
-  }
+  .dark-wrapper { min-height: 50svh; }
 }
 
 /* ============================
@@ -746,9 +673,7 @@ html, body {
     --quote-h: 60px;
   }
 
-  .hero {
-    padding: 100px 80px 120px;
-  }
+  .hero { padding: 100px 80px 120px; }
 
   .hero-input-row {
     max-width: 520px;
@@ -797,19 +722,14 @@ html, body {
     --quote-h: 64px;
   }
 
-  .hero {
-    padding: 120px 80px 140px;
-  }
+  .hero { padding: 120px 80px 140px; }
 
   .bunker-text {
     font-size: 70px;
     letter-spacing: -4.5px;
   }
 
-  .for-text {
-    font-size: 20px;
-    margin-top: 16px;
-  }
+  .for-text { font-size: 20px; margin-top: 16px; }
 
   #changing-word {
     font-size: 84px;
@@ -834,9 +754,7 @@ html, body {
     letter-spacing: -3px;
   }
 
-  .dark-description {
-    font-size: 16px;
-  }
+  .dark-description { font-size: 16px; }
 
   .social-row {
     gap: 22px;
@@ -848,11 +766,9 @@ html, body {
     height: 24px;
   }
 
-  .dark-wrapper {
-    min-height: 50svh;
-  }
+  .dark-wrapper { min-height: 50svh; }
 }
-</style>
+  </style>
 </head>
 
 <body>
@@ -867,7 +783,6 @@ html, body {
       <span class="for-text">for</span>
     </div>
 
-    <!-- Animated Word (Replaces Creativity text) -->
     <div style="margin-top:15px">
       <span id="changing-word">Creativity</span>
     </div>
@@ -882,8 +797,7 @@ html, body {
       <button class="hero-btn">Submit</button>
     </div>
 
-    <p id="emailError" style="margin-top: 6px;font-size: 12px;color: rgb(202 34 33);display: block;font-family: Inter, sans-serif;width: 100%;
-    text-align: justify;"></p>
+    <p id="emailError" style="margin-top:6px;font-size:12px;color:rgb(202 34 33);display:block;font-family:Inter,sans-serif;width:100%;text-align:justify;"></p>
 
     <p class="hero-tagline">
       Our digital platform is being crafted to help founders, marketers,
@@ -898,21 +812,19 @@ html, body {
   <div class="dark-wrapper">
     <section class="dark-section">
 
-      <!-- Left: Big quote stat -->
       <div class="dark-left">
-        <p class="dark-stat" style="text-align: right;" id="dark-stat_1">
+        <p class="dark-stat" style="text-align:right;" id="dark-stat_1">
           Only 1 in 10 brands truly
           <span class="highlight-blue">understand</span> their market - we exist
           to close that <span class="highlight-blue">gap</span>.
         </p>
         <p class="dark-stat" id="dark-heading">
-          Only 1 in 10
-          brands truly <span class="highlight-blue">understand</span> their
-          market - we exist to close that <span class="highlight-blue">gap</span>.
+          Only 1 in 10 brands truly
+          <span class="highlight-blue">understand</span> their market - we exist
+          to close that <span class="highlight-blue">gap</span>.
         </p>
       </div>
 
-      <!-- Right: Description + socials -->
       <div class="dark-right">
         <p class="dark-description">
           <strong>Bunker is</strong> an annual magazine where advertising meets
@@ -957,6 +869,7 @@ html, body {
 
     </section>
   </div>
+
   <!-- ══════════════════════
        NET STATUS BANNER
   ══════════════════════ -->
@@ -964,7 +877,6 @@ html, body {
     <div id="netToast" class="net-toast offline">
       <div id="netIcon" class="net-icon offline">
         <svg id="netSvg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <!-- offline icon by default -->
           <line x1="1" y1="1" x2="23" y2="23"/>
           <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
           <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/>
@@ -983,59 +895,122 @@ html, body {
   </div>
 
   <script>
-    
-    /* ==========================
-    NET STATUS 
-    ============================== */
-    const banner   = document.getElementById('netStatus');
-    const toast    = document.getElementById('netToast');
-    const netIcon  = document.getElementById('netIcon');
-    const netSvg   = document.getElementById('netSvg');
-    const netTitle = document.getElementById('netTitle');
-    const netSub   = document.getElementById('netSub');
-    const netDot   = document.getElementById('netDot');
 
-    const OFFLINE_SVG = `
-      <line x1="1" y1="1" x2="23" y2="23"/>
-      <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
-      <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/>
-      <path d="M10.71 5.05A16 16 0 0 1 22.56 9"/>
-      <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/>
-      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
-      <circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>
-    `;
+    /* ============================================================
+       1. ZOOM PREVENTION — ALL BROWSERS (Chrome, Firefox, Safari,
+          Edge, IE, Opera, mobile browsers)
+    ============================================================ */
 
-    const ONLINE_SVG = `
-      <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
-      <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
-      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
-      <circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>
-    `;
+    /* -- iOS Safari & older WebKit: gesture events -- */
+    document.addEventListener('gesturestart',  function(e){ e.preventDefault(); }, { passive: false });
+    document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, { passive: false });
+    document.addEventListener('gestureend',    function(e){ e.preventDefault(); }, { passive: false });
 
-    let hideTimer = null;
+    /* -- Chrome, Firefox, Edge (Chromium), Opera:
+         pinch on trackpad / touchscreen fires as wheel + ctrlKey -- */
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    /* Also attach on window to catch any bubbling edge cases in Edge */
+    window.addEventListener('wheel', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    /* -- Keyboard zoom: Ctrl/Cmd + Plus, Minus, Equals, Zero -- */
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        if (
+          ['-', '_', '+', '=', '0'].includes(e.key) ||
+          e.keyCode === 107 ||  /* Numpad + */
+          e.keyCode === 109 ||  /* Numpad - */
+          e.keyCode === 96  ||  /* Numpad 0 */
+          e.keyCode === 48      /* Top row 0 */
+        ) {
+          e.preventDefault();
+        }
+      }
+    });
+
+    /* -- Double-tap zoom (Android Chrome, Samsung Browser, etc.) -- */
+    var lastTap = 0;
+    document.addEventListener('touchend', function(e) {
+      var now = Date.now();
+      if (now - lastTap < 300) {
+        e.preventDefault();
+      }
+      lastTap = now;
+    }, { passive: false });
+
+    /* -- Multi-touch pinch zoom (all touch browsers) -- */
+    document.addEventListener('touchstart', function(e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.addEventListener('touchmove', function(e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    /* -- Edge (Chromium + legacy EdgeHTML): Pointer Events pinch --
+         Secondary pointer (isPrimary=false) is the second finger    */
+    document.addEventListener('pointermove', function(e) {
+      if (e.pointerType === 'touch' && e.isPrimary === false) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    /* -- Legacy EdgeHTML / IE: MSGesture events -- */
+    document.addEventListener('MSGestureStart',  function(e){ e.preventDefault(); }, { passive: false });
+    document.addEventListener('MSGestureChange', function(e){ e.preventDefault(); }, { passive: false });
+    document.addEventListener('MSGestureEnd',    function(e){ e.preventDefault(); }, { passive: false });
+
+    /* -- Disable right-click context menu zoom option (optional) -- */
+    /* document.addEventListener('contextmenu', function(e){ e.preventDefault(); }); */
+
+
+    /* ============================================================
+       2. NET STATUS BANNER
+    ============================================================ */
+    var banner   = document.getElementById('netStatus');
+    var toast    = document.getElementById('netToast');
+    var netIcon  = document.getElementById('netIcon');
+    var netSvg   = document.getElementById('netSvg');
+    var netTitle = document.getElementById('netTitle');
+    var netSub   = document.getElementById('netSub');
+    var netDot   = document.getElementById('netDot');
+
+    var OFFLINE_SVG = '<line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>';
+    var ONLINE_SVG  = '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>';
+
+    var hideTimer = null;
 
     function showBanner(type) {
       clearTimeout(hideTimer);
-
       if (type === 'offline') {
-        toast.className    = 'net-toast offline';
-        netIcon.className  = 'net-icon offline';
-        netDot.className   = 'net-dot offline';
-        netSvg.innerHTML   = OFFLINE_SVG;
+        toast.className      = 'net-toast offline';
+        netIcon.className    = 'net-icon offline';
+        netDot.className     = 'net-dot offline';
+        netSvg.innerHTML     = OFFLINE_SVG;
         netTitle.textContent = 'No internet connection';
         netSub.textContent   = 'Check your Wi-Fi or mobile data.';
       } else {
-        toast.className    = 'net-toast online';
-        netIcon.className  = 'net-icon online';
-        netDot.className   = 'net-dot online';
-        netSvg.innerHTML   = ONLINE_SVG;
+        toast.className      = 'net-toast online';
+        netIcon.className    = 'net-icon online';
+        netDot.className     = 'net-dot online';
+        netSvg.innerHTML     = ONLINE_SVG;
         netTitle.textContent = 'Connection restored';
         netSub.textContent   = "You're back online.";
       }
-
       banner.classList.remove('hide');
       banner.classList.add('show');
-
       if (type === 'online') {
         hideTimer = setTimeout(hideBanner, 3000);
       }
@@ -1046,62 +1021,20 @@ html, body {
       banner.classList.add('hide');
     }
 
-    window.addEventListener('offline', () => showBanner('offline'));
-    window.addEventListener('online',  () => showBanner('online'));
+    window.addEventListener('offline', function(){ showBanner('offline'); });
+    window.addEventListener('online',  function(){ showBanner('online');  });
 
     if (!navigator.onLine) {
       showBanner('offline');
     }
 
 
-    /* ==========================
-    DISABLING ZOOM
-    ============================== */
-    document.addEventListener('gesturestart', function (e) {
-      e.preventDefault();
-    });
-    document.addEventListener('gesturechange', function (e) {
-      e.preventDefault();
-    });
-    document.addEventListener('gestureend', function (e) {
-      e.preventDefault();
-    });
-
-    
-    /* ==========================
-    DISABLING ZOOM KEYS ( CTRL + CMD )
-    ============================== */
-      document.addEventListener('keydown', function (event) {
-      // Check if Ctrl or Meta (Command on Mac) is pressed
-      if (event.ctrlKey || event.metaKey) {
-        const key = event.key;
-        // Disable zoom out (- or underscore) and zoom in (+ or =)
-        if (key === '-' || key === '_' || key === '+' || key === '=') {
-          event.preventDefault();
-        }
-        // Also block Numpad add/subtract if necessary
-        if (event.keyCode === 107 || event.keyCode === 109) {
-          event.preventDefault();
-        }
-      }
-    });  
-
-    /* ==========================
-    DISABLING ZOOM MOUSE DRAGING
-    ============================== */
-
-    view.on("drag", function(event) {
-        if (event.native.shiftKey) {
-          event.stopPropagation(); // Prevents zoom box creation
-        }
-    });
-
-    /* ==========================
-    EMAIL VALIDATION 
-    ============================== */
-    const inp = document.querySelector('.hero-email-input');
-    const btn = document.querySelector('.hero-btn');
-    const err = document.getElementById('emailError');
+    /* ============================================================
+       3. EMAIL VALIDATION
+    ============================================================ */
+    var inp = document.querySelector('.hero-email-input');
+    var btn = document.querySelector('.hero-btn');
+    var err = document.getElementById('emailError');
 
     function clearError() {
       inp.classList.remove('error');
@@ -1109,31 +1042,32 @@ html, body {
     }
 
     inp.addEventListener('input', clearError);
-    inp.addEventListener('blur', clearError);
+    inp.addEventListener('blur',  clearError);
 
     btn.addEventListener('click', function () {
       clearError();
-      const val = inp.value.trim();
+      var val = inp.value.trim();
       if (!val) {
         inp.classList.add('error');
-        err.textContent = 'Please enter your email address.';
+        // err.textContent   = 'Please enter your email address.';
         err.style.display = 'block';
         inp.focus();
         return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
         inp.classList.add('error');
-        err.textContent = 'Please enter a valid email address.';
+        // err.textContent   = 'Please enter a valid email address.';
         err.style.display = 'block';
         inp.focus();
         return;
       }
     });
 
-    /* ============================
-     WORD ANIMATION
-    ============================ */
-    const words = [
+
+    /* ============================================================
+       4. WORD ANIMATION
+    ============================================================ */
+    var words = [
       "Creativity",
       "Strategy",
       "Disruptions",
@@ -1146,17 +1080,15 @@ html, body {
       "Narratives",
       "Storytelling",
       "Growth",
-      "Insights",
-     
+      "Insights"
     ];
 
-    let index = 0;
-    const wordElement = document.getElementById("changing-word");
+    var index       = 0;
+    var wordElement = document.getElementById("changing-word");
 
     function changeWord() {
       wordElement.classList.remove("show");
-
-      setTimeout(() => {
+      setTimeout(function() {
         index = (index + 1) % words.length;
         wordElement.textContent = words[index];
         wordElement.classList.add("show");
@@ -1165,6 +1097,7 @@ html, body {
 
     wordElement.classList.add("show");
     setInterval(changeWord, 1000);
+
   </script>
 
 </body>
