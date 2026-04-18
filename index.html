@@ -126,6 +126,7 @@ html, body {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #1a1515;
+  font-weight: 400;
   outline: none;
   min-width: 0;
   transition: border-color 0.18s, background 0.18s;
@@ -138,8 +139,7 @@ html, body {
 
 .hero-email-input:focus {
   background: #fff !important;
-  border: 1.5px solid #1a1a1a;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
               rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
@@ -739,7 +739,7 @@ html, body {
   }
 
   .dark-section {
-    padding: 155px 80px;
+    padding: 100px 80px;
     max-width: 1440px;
     margin: 0 auto;
     gap: 120px;
@@ -795,7 +795,8 @@ html, body {
         placeholder="Enter your email"
         aria-label="Email address"
       />
-      <button class="hero-btn">Submit</button>
+      <!-- <button class="hero-btn">Submit</button> -->
+      <button class="hero-btn" type="button">Submit</button>
     </div>
 
     <p id="emailError" style="margin-top:6px;font-size:12px;color:rgb(202 34 33);display:block;font-family:Inter,sans-serif;width:100%;text-align:justify;"></p>
@@ -1034,37 +1035,49 @@ html, body {
        3. EMAIL VALIDATION
     ============================================================ */
     var inp = document.querySelector('.hero-email-input');
-    var btn = document.querySelector('.hero-btn');
-    var err = document.getElementById('emailError');
+      var btn = document.querySelector('.hero-btn');
+      var err = document.getElementById('emailError');
 
-    function clearError() {
-      inp.classList.remove('error');
-      err.style.display = 'none';
-    }
-
-    inp.addEventListener('input', clearError);
-    inp.addEventListener('blur',  clearError);
-
-    btn.addEventListener('click', function () {
-      clearError();
-      var val = inp.value.trim();
-      if (!val) {
-        inp.classList.add('error');
-        // err.textContent   = 'Please enter your email address.';
-        err.style.display = 'block';
-        inp.focus();
-        return;
+      function clearError() {
+        inp.classList.remove('error');
+        err.style.display = 'none';
+        err.textContent = "";
       }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        inp.classList.add('error');
-        // err.textContent   = 'Please enter a valid email address.';
-        err.style.display = 'block';
-        inp.focus();
-        return;
-      }
-    });
 
+      inp.addEventListener('input', clearError);
+      inp.addEventListener('blur',  clearError);
 
+      btn.addEventListener('click', function () {
+        clearError();
+        var val = inp.value.trim();
+
+        if (!val) {
+          inp.classList.add('error');
+          // err.textContent = 'Please enter your email address.';
+          err.style.display = 'block';
+          inp.focus();
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+          inp.classList.add('error');
+          // err.textContent = 'Please enter a valid email address.';
+          err.style.display = 'block';
+          inp.focus();
+          return;
+        }
+
+        alert("Email submitted");
+        location.reload(); // optional
+      });
+
+      inp.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    
     /* ============================================================
        4. WORD ANIMATION
     ============================================================ */
