@@ -692,8 +692,9 @@ html, body {
   }
 
   .dark-stat {
-    font-size: 52px;
+    font-size: 51px;
     letter-spacing: -2px;
+    max-width: 385px;
   }
 
   .dark-description {
@@ -974,9 +975,10 @@ html, body {
 
     /* -- Disable right-click context menu zoom option (optional) -- */
     /* document.addEventListener('contextmenu', function(e){ e.preventDefault(); }); */
-    
+
+
     /* ============================================================
-       2. NET STATUS BANNER (FIXED)
+       2. NET STATUS BANNER
     ============================================================ */
     var banner   = document.getElementById('netStatus');
     var toast    = document.getElementById('netToast');
@@ -985,36 +987,14 @@ html, body {
     var netTitle = document.getElementById('netTitle');
     var netSub   = document.getElementById('netSub');
     var netDot   = document.getElementById('netDot');
-    
-    var OFFLINE_SVG = `
-      <line x1="1" y1="1" x2="23" y2="23"/>
-      <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
-      <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/>
-      <path d="M10.71 5.05A16 16 0 0 1 22.56 9"/>
-      <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/>
-      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
-      <circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>
-    `;
-    
-    var ONLINE_SVG = `
-      <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
-      <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
-      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
-      <circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>
-    `;
-    
+
+    var OFFLINE_SVG = '<line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>';
+    var ONLINE_SVG  = '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#fff" stroke="none"/>';
+
     var hideTimer = null;
-    
+
     function showBanner(type) {
       clearTimeout(hideTimer);
-    
-      // Reset animation state (IMPORTANT FIX)
-      banner.classList.remove('hide');
-      banner.classList.remove('show');
-    
-      // Force reflow so animation restarts properly
-      void banner.offsetWidth;
-    
       if (type === 'offline') {
         toast.className      = 'net-toast offline';
         netIcon.className    = 'net-icon offline';
@@ -1030,76 +1010,60 @@ html, body {
         netTitle.textContent = 'Connection restored';
         netSub.textContent   = "You're back online.";
       }
-    
+      banner.classList.remove('hide');
       banner.classList.add('show');
-    
-      // Auto hide only for online status
       if (type === 'online') {
-        hideTimer = setTimeout(hideBanner, 2500);
+        hideTimer = setTimeout(hideBanner, 3000);
       }
     }
-    
+
     function hideBanner() {
       banner.classList.remove('show');
       banner.classList.add('hide');
     }
-    
-    window.addEventListener('offline', function () {
-      showBanner('offline');
-    });
-    
-    window.addEventListener('online', function () {
-      showBanner('online');
-    });
-    
-    // On first load
+
+    window.addEventListener('offline', function(){ showBanner('offline'); });
+    window.addEventListener('online',  function(){ showBanner('online');  });
+
     if (!navigator.onLine) {
       showBanner('offline');
     }
 
+
     /* ============================================================
        3. EMAIL VALIDATION
     ============================================================ */
-    var form = document.getElementById("emailForm");
-    var inp = document.querySelector(".hero-email-input");
-    var err = document.getElementById("emailError");
-    
+    var inp = document.querySelector('.hero-email-input');
+    var btn = document.querySelector('.hero-btn');
+    var err = document.getElementById('emailError');
+
     function clearError() {
-      inp.classList.remove("error");
-      err.style.display = "none";
-      err.textContent = "";
+      inp.classList.remove('error');
+      err.style.display = 'none';
     }
-    
-    inp.addEventListener("input", clearError);
-    inp.addEventListener("blur", clearError);
-    
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); // prevent page reload
-    
+
+    inp.addEventListener('input', clearError);
+    inp.addEventListener('blur',  clearError);
+
+    btn.addEventListener('click', function () {
       clearError();
       var val = inp.value.trim();
-    
       if (!val) {
-        inp.classList.add("error");
-        // err.textContent = "Please enter your email address.";
-        err.style.display = "block";
+        inp.classList.add('error');
+        err.textContent   = 'Please enter your email address.';
+        err.style.display = 'block';
         inp.focus();
         return;
       }
-    
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        inp.classList.add("error");
-        // err.textContent = "Please enter a valid email address.";
-        err.style.display = "block";
+        inp.classList.add('error');
+        err.textContent   = 'Please enter a valid email address.';
+        err.style.display = 'block';
         inp.focus();
         return;
       }
-    
-      alert("Email submitted successfully: " + val);
-    
-      inp.value = "";
     });
-    
+
 
     /* ============================================================
        4. WORD ANIMATION
