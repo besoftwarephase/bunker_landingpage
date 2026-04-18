@@ -403,9 +403,11 @@ html, body {
 ============================ */
 @media (max-width: 767px) {
   .hero {
-    height: auto;
+    height: 100svh;        /* ← exact fit, no overflow */
+    min-height: unset;     /* ← cancel the base min-height */
+    overflow: hidden;      /* ← clip anything that overflows */
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: always
   }
 
   .dark-wrapper {
