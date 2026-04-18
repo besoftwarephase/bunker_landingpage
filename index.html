@@ -111,7 +111,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
+  margin-top: 30px !important;
   width: 100%;
   max-width: 360px;
 }
@@ -1067,6 +1067,35 @@ html, body {
       e.preventDefault();
     });
 
+    
+    /* ==========================
+    DISABLING ZOOM KEYS ( CTRL + CMD )
+    ============================== */
+      document.addEventListener('keydown', function (event) {
+      // Check if Ctrl or Meta (Command on Mac) is pressed
+      if (event.ctrlKey || event.metaKey) {
+        const key = event.key;
+        // Disable zoom out (- or underscore) and zoom in (+ or =)
+        if (key === '-' || key === '_' || key === '+' || key === '=') {
+          event.preventDefault();
+        }
+        // Also block Numpad add/subtract if necessary
+        if (event.keyCode === 107 || event.keyCode === 109) {
+          event.preventDefault();
+        }
+      }
+    });  
+
+    /* ==========================
+    DISABLING ZOOM MOUSE DRAGING
+    ============================== */
+
+    view.on("drag", function(event) {
+        if (event.native.shiftKey) {
+          event.stopPropagation(); // Prevents zoom box creation
+        }
+    });
+
     /* ==========================
     EMAIL VALIDATION 
     ============================== */
@@ -1087,14 +1116,14 @@ html, body {
       const val = inp.value.trim();
       if (!val) {
         inp.classList.add('error');
-        // err.textContent = 'Please enter your email address.';
+        err.textContent = 'Please enter your email address.';
         err.style.display = 'block';
         inp.focus();
         return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
         inp.classList.add('error');
-        // err.textContent = 'Please enter a valid email address.';
+        err.textContent = 'Please enter a valid email address.';
         err.style.display = 'block';
         inp.focus();
         return;
@@ -1112,11 +1141,13 @@ html, body {
       "Brand",
       "Advertising",
       "Impact",
+      "Bold Ideas",
       "Positioning",
       "Narratives",
       "Storytelling",
       "Growth",
       "Insights",
+     
     ];
 
     let index = 0;
@@ -1134,7 +1165,6 @@ html, body {
 
     wordElement.classList.add("show");
     setInterval(changeWord, 1000);
-
   </script>
 
 </body>
